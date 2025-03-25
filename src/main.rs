@@ -1,3 +1,4 @@
+//learning/src/main.rs
 mod example; // This line includes the example.rs file
 mod components;
 mod views;
@@ -18,7 +19,7 @@ enum Route {
 }
 
 const FAVICON: Asset = asset!("/assets/favicon.ico");
-const TAILWIND_CSS: Asset = asset!("/assets/tailwind.css");
+const TAILWIND_CSS: Asset = asset!("/assets/tailwind-output.css"); // Updated path
 
 fn main() {
     dioxus::launch(App);
