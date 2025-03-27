@@ -1,7 +1,7 @@
 use dioxus::prelude::*;
 
 #[component]
-pub fn Error() -> Element {
+pub fn Login() -> Element {
     rsx! {
         div { class: "flex flex-col items-center h-full w-full",
             h2 { class: "mt-2 text-center text-3xl font-bold tracking-tight text-base-content",
