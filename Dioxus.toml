@@ -9,7 +9,7 @@ title = "learning"
 [web.resource]
 
 # Additional CSS style files
-style = []
+style = ["./assets/tailwind-output.css"]
 
 # Additional JavaScript files
 script = []
