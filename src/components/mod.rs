@@ -10,8 +10,11 @@ pub use echo::Echo;
 
 pub mod layout;
 
-pub mod example;
-pub use example::ComponentShowcase;
+// pub mod sidebar;
+// pub use sidebar::component_showcase;
 
 // components/mod.rs
 pub mod daisy_ui;
+
+mod guide_component;
+pub use guide_component::DogApp;
