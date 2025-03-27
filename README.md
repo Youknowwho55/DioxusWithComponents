@@ -23,6 +23,8 @@ Run the following command in the root of your project to start developing with t
 dx serve --platform desktop
 ```
 
+dx serve --platform web
+
 To run for a different platform, use the `--platform platform` flag. E.g.
 
 ```bash

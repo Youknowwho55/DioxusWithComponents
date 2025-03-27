@@ -2,10 +2,11 @@
 mod example; // This line includes the example.rs file
 mod components;
 mod views;
+use components::layout::Layout;
 
 use dioxus::prelude::*;
 use components::Navbar;
-use views::{Blog, Home};
+use views::{Blog, Home, About, Contact}; // Import your route components
 use example::comp; // Import the `comp` function from example.rs
 
 #[derive(Debug, Clone, Routable, PartialEq)]
@@ -16,6 +17,12 @@ enum Route {
     Home {},
     #[route("/blog/:id")]
     Blog { id: i32 },
+    #[route("/about")]
+    About {},
+    #[route("/contact")]
+    Contact {}
+
+
 }
 
 const FAVICON: Asset = asset!("/assets/favicon.ico");
@@ -33,10 +40,10 @@ fn App() -> Element {
         // Global app resources
         document::Link { rel: "icon", href: FAVICON }
         document::Link { rel: "stylesheet", href: TAILWIND_CSS }
-
-        Router::<Route> {}
-
-        // Call the `comp` function directly
-        {comp()}
+        Layout {
+            Router::<Route> {}
+            // Call the `comp` function directly
+            {comp()}
+        }
     }
 }

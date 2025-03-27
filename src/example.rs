@@ -69,8 +69,8 @@ pub fn comp() -> Element {
     rsx! {
         div {
             // Button to cycle to the next component
-            // Button to cycle to the next component
             button {
+                class: "px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors duration-300 ease-in-out shadow-md active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 mx-2",
                 onclick: move |_| {
                     current_component_index
                         .set((current_component_index() + 1) % components_next.len());
@@ -79,6 +79,7 @@ pub fn comp() -> Element {
             }
             // Button to cycle to the previous component
             button {
+                class: "px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors duration-300 ease-in-out shadow-md active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 mx-2",
                 onclick: move |_| {
                     current_component_index
                         .set(
