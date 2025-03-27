@@ -27,7 +27,8 @@ pub enum Component {
     // Add more components as needed
 }
 
-pub fn comp() -> Element {
+#[component]
+pub fn Comp() -> Element {
     // Use a signal to track the current component index
     let mut current_component_index = use_signal(|| 0);
 

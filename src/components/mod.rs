@@ -8,3 +8,6 @@ mod echo;
 pub use echo::Echo;
 
 pub mod layout;
+
+pub mod example;
+pub use example::Comp;

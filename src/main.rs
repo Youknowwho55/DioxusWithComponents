@@ -1,13 +1,11 @@
 //learning/src/main.rs
-mod example; // This line includes the example.rs file
 mod components;
 mod views;
-use components::layout::Layout;
 
 use dioxus::prelude::*;
 use components::Navbar;
 use views::{Blog, Home, About, Contact}; // Import your route components
-use example::comp; // Import the `comp` function from example.rs
+use components::layout::Layout;
 
 #[derive(Debug, Clone, Routable, PartialEq)]
 #[rustfmt::skip]
@@ -40,10 +38,6 @@ fn App() -> Element {
         // Global app resources
         document::Link { rel: "icon", href: FAVICON }
         document::Link { rel: "stylesheet", href: TAILWIND_CSS }
-        Layout {
-            Router::<Route> {}
-            // Call the `comp` function directly
-            {comp()}
-        }
+        Layout { Router::<Route> {} }
     }
 }
