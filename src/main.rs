@@ -27,12 +27,13 @@ const FAVICON: Asset = asset!("/assets/favicon.ico");
 const TAILWIND_CSS: Asset = asset!("/assets/tailwind-output.css"); // Updated path
 
 fn main() {
+    #[cfg(not(feature = "server"))]
+    dioxus::fullstack::prelude::server_fn::client::set_server_url("http://127.0.0.1:8080");
     dioxus::launch(App);
 }
 
 #[component]
 fn App() -> Element {
-    // Build cool things ✌️
 
     rsx! {
         // Global app resources

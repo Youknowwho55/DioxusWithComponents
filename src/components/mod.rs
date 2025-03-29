@@ -5,13 +5,16 @@ pub use hero::Hero;
 mod navbar;
 pub use navbar::Navbar;
 
-mod echo;
-pub use echo::Echo;
+mod count;
+pub use count::Count;
+
+mod loading;
+pub use loading::*;
 
 pub mod layout;
 
-// pub mod sidebar;
-// pub use sidebar::component_showcase;
+pub mod sidebar;
+pub use sidebar::Component_showcase;
 
 // components/mod.rs
 pub mod daisy_ui;

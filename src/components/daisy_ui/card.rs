@@ -74,3 +74,6 @@ pub fn CardBody(props: CardBodyProps) -> Element {
         div { class: "{class}", {props.children} }
     )
 }
+
+
+

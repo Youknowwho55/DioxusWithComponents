@@ -10,4 +10,5 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  "tailwindCSS.experimental.configFile": "/learning/assets/tailwind.css",
 };

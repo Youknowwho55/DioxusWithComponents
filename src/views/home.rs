@@ -1,12 +1,12 @@
-use crate::components::{Echo, Hero, DogApp};
+use crate::components::{Count, Hero, DogApp, Component_showcase};
 use dioxus::prelude::*;
 
 #[component]
 pub fn Home() -> Element {
     rsx! {
         Hero {}
-        // ComponentShowcase {}
+        Component_showcase {}
         DogApp {}
-        Echo {}
+        Count {}
     }
 }

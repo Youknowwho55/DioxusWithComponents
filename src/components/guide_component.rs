@@ -9,11 +9,11 @@ pub fn DogApp() -> Element {
             h1 { "HotDog! 🌭" }
         }
         div { id: "dogview",
-            img { src: "https://images.dog.ceo/breeds/pitbull/dog-3981540_1280.jpg" }
+            p { id: "dogview", "Doggo" }
         }
         div { id: "buttons",
-            button { id: "skip", "skip" }
-            button { id: "save", "save!" }
+            button { class: "px-3 mx-2", id: "skip", "skip" }
+            button { class: "px-3 mx-2", id: "save", "save!" }
         }
     }
 }
