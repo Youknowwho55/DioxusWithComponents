@@ -1,5 +1,5 @@
 // src/components/DaisyUI/mod.rs
-pub mod accordian;
+pub mod accordion;
 pub mod alert;
 pub mod app_layout;
 pub mod avatar;
@@ -23,13 +23,13 @@ pub mod text_area;
 pub mod time_line;
 pub mod tooltip;
 
-pub use accordian::Accordian;
+pub use accordion::{Accordion, AccordionType};
 pub use alert::{Alert, AlertColor};
 pub use app_layout::AppLayout;
 pub use avatar::{Avatar, AvatarSize, AvatarType};
 pub use blank_slate::BlankSlate;
-pub use button::{Button, ButtonScheme, ButtonSize, ButtonType};
-pub use card::{Card, CardBody, CardHeader};
+pub use button::{Button, ButtonScheme, ButtonSize, ButtonType}; // DONE
+pub use card::{Card, CardBody, CardHeader}; // DONE
 pub use check_box::{CheckBox, CheckBoxScheme, CheckBoxSize};
 pub use drawer::{Drawer, DrawerBody, DrawerFooter};
 pub use drop_down::{Direction, DropDown, DropDownLink};
