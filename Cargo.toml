@@ -1,15 +1,23 @@
 [package]
 name = "learning"
 version = "0.1.0"
-authors = ["Youknowwho55 <dylan9112@gmail.com>"]
+authors = ["Youknowwho55 <rayburncode@gmail.com>"]
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[package]
+description = "Reusable Dioxus UI components"
+license = "MIT"
+repository = "https://github.com/you/repo"
+
+
 [dependencies]
+ui-components = { path = "src/components" }
 dioxus = { version = "0.6.3", features = ["router", "fullstack"] }
 dioxus-fullstack = "0.6.3"
 dioxus-html = "0.6.3"
+dioxus-ssr = { version = "0.6" }
 serde = { version = "1.0", features = ["derive"] }
 chrono = "0.4.40"
 strum = "0.27"

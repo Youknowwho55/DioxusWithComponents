@@ -68,7 +68,7 @@ pub mod types {
     pub use super::button::{ButtonScheme, ButtonSize, ButtonType};
     pub use super::check_box::{CheckBoxScheme, CheckBoxSize};
     pub use super::drop_down::Direction;
-    pub use super::input::{InputSize, InputType};
+    pub use super::input::{InputProps, InputScheme, InputSize, InputType};
     pub use super::label::{LabelRole, LabelSize};
     pub use super::range::RangeColor;
     pub use super::select::SelectSize;

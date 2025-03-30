@@ -5,6 +5,7 @@ use crate::components::ui::alert::render_alert_showcase;
 use crate::components::ui::card::render_card_showcase;
 use crate::components::ui::accordion::render_accordion_showcase;
 use crate::components::ui::button::render_button_showcase;
+use crate::components::ui::input::render_input_showcase;
 
 
 #[derive(PartialEq, Clone, Copy, Debug)]
@@ -13,6 +14,7 @@ pub enum ComponentShowcase {
     Button,
     Accordion,
     Alert,
+    Input,
     // Add more components as needed
 }
 
@@ -26,6 +28,7 @@ pub fn Component_showcase() -> Element {
         ComponentShowcase::Button,
         ComponentShowcase::Accordion,
         ComponentShowcase::Alert,
+        ComponentShowcase::Input,
     ];
 
     rsx! {
@@ -70,6 +73,7 @@ fn render_selected_component(selected: Signal<ComponentShowcase>) -> Element {
         ComponentShowcase::Button => render_button_showcase(),
         ComponentShowcase::Accordion => render_accordion_showcase(),
         ComponentShowcase::Alert => render_alert_showcase(),
+        ComponentShowcase::Input => render_input_showcase(),
     }
 
 }

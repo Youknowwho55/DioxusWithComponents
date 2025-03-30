@@ -39,3 +39,20 @@ npm install tailwindcss @tailwindcss/cli
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss -i ./assets/tailwind.css -o ./assets/tailwind-output.css --watch
 const TAILWIND_CSS: Asset = asset!("/assets/tailwind-output.css"); // Updated path
+
+## Prompt
+
+"Please provide the props for a [XXXX] component, including:
+
+1. Core Functionality (Essential props for basic operation)
+2. Visual Customization (Styling, variants, sizes)
+3. Behavior (Event handlers, interaction logic)
+4. Composition (Slots, children, compound components)
+5. Accessibility (ARIA attributes, keyboard nav, labels)
+6. DOM Extensions (Class, style, ID, data-\* attributes)
+7. Documentation Examples (3-5 common usage examples)
+
+- [ ] Props documented using standard template
+- [ ] Uses shared design tokens
+- [ ] Includes basic examples
+- [ ] Accessibility attributes considered
