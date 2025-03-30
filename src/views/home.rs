@@ -4,7 +4,7 @@ use dioxus::prelude::*;
 #[component]
 pub fn Home() -> Element {
     rsx! {
-        Component_showcase {}
+        // Component_showcase {}
         DogApp {}
         Count {}
     }

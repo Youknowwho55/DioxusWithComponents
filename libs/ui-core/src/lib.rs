@@ -1,5 +1,8 @@
+// libs/ui-core/src/lib.rs
+#![warn(missing_docs)]
+
 //! UI Components Module
-//!
+//! 
 //! Reusable UI components following the design system.
 
 // Component modules
@@ -43,7 +46,7 @@ pub mod components {
     
     // Form Elements
     pub use super::button::{Button, ButtonScheme, ButtonSize, ButtonType};
-    pub use super::check_box::{CheckBox, CheckBoxScheme, CheckBoxSize};
+    // pub use super::check_box::{CheckBox, CheckBoxScheme, CheckBoxSize};
     pub use super::input::{Input, InputSize, InputType};
     pub use super::range::{Range, RangeColor};
     pub use super::select::{Select, SelectOption, SelectSize};
@@ -66,7 +69,7 @@ pub mod types {
     pub use super::alert::{AlertColor, AlertIcon, WithButtons};
     pub use super::avatar::{AvatarSize, AvatarType};
     pub use super::button::{ButtonScheme, ButtonSize, ButtonType};
-    pub use super::check_box::{CheckBoxScheme, CheckBoxSize};
+    // pub use super::check_box::{CheckBoxScheme, CheckBoxSize};
     pub use super::drop_down::Direction;
     pub use super::input::{InputProps, InputScheme, InputSize, InputType};
     pub use super::label::{LabelRole, LabelSize};
@@ -76,7 +79,7 @@ pub mod types {
     pub use super::tooltip::ToolTipColor;
 }
 
-// Convenience prelude
+// Consolidated prelude
 pub mod prelude {
     pub use super::components::*;
     pub use super::types::*;
