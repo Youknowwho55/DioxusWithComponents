@@ -24,7 +24,7 @@ pub mod time_line;
 pub mod tooltip;
 
 pub use accordion::{Accordion, AccordionType};
-pub use alert::{Alert, AlertColor};
+pub use alert::{Alert, AlertColor, AlertIcon, WithButtons};
 pub use app_layout::AppLayout;
 pub use avatar::{Avatar, AvatarSize, AvatarType};
 pub use blank_slate::BlankSlate;

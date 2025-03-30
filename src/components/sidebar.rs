@@ -1,15 +1,19 @@
+// src/components/sidebar.rs
 use dioxus::prelude::*;
 // Import all your components
-use crate::components::daisy_ui::card::{Card, CardHeader, CardBody};
-use crate::components::daisy_ui::button::{Button, ButtonScheme, ButtonSize, ButtonType};
-use crate::components::daisy_ui::accordion::{Accordion, AccordionType};
+use crate::components::daisy_ui::{
+    button::{Button, ButtonScheme, ButtonSize, ButtonType},
+    card::{Card, CardBody, CardFoot, CardHeader},
+    accordion::{Accordion, AccordionType},
+    Alert, AlertColor, AlertIcon, WithButtons
+};
 
-
-#[derive(PartialEq, Clone, Debug)]
+#[derive(PartialEq, Clone, Copy, Debug)]
 pub enum ComponentShowcase {
     Card,
     Button,
     Accordion,
+    Alert,
     // Add more components as needed
 }
 
@@ -22,10 +26,9 @@ pub fn Component_showcase() -> Element {
         ComponentShowcase::Card,
         ComponentShowcase::Button,
         ComponentShowcase::Accordion,
-
-        // Add more components as they're implemented
+        ComponentShowcase::Alert,
     ];
-    
+
     rsx! {
         div { class: "flex min-h-screen bg-base-200",
             // Sidebar navigation
@@ -35,15 +38,21 @@ pub fn Component_showcase() -> Element {
                     {
                         components
                             .iter()
-                            .map(|component| {
-                                let is_active = *selected_component.read() == *component;
-                                let component_clone = component.clone();
+                            .map(|&component| {
+                                let component_name = format!("{:?}", component);
                                 rsx! {
-                                    li { class: "py-2", key: "{component:?}",
+                                    li { class: "py-2", key: "{component_name}",
                                         a {
-                                            class: if is_active { "active bg-black-200" } else { "hover:bg-black-700" },
-                                            onclick: move |_| selected_component.set(component_clone.clone()),
-                                            {format!("{:?}", component)}
+                                            class: format!(
+                                                "block px-4 py-2 rounded transition {}",
+                                                if selected_component() == component {
+                                                    "bg-red-300 text-blue-400"
+                                                } else {
+                                                    "hover:bg-black-100 hover:text-black-500"
+                                                },
+                                            ),
+                                            onclick: move |_| selected_component.set(component),
+                                            "{component_name}"
                                         }
                                     }
                                 }
@@ -51,21 +60,23 @@ pub fn Component_showcase() -> Element {
                     }
                 }
             }
-            // Main content area - render the selected component
-            div { class: "flex-1 p-8", {render_selected_component(&selected_component)} }
+            // Main content area
+            div { class: "flex-1 p-8", {render_selected_component(selected_component)} }
         }
     }
 }
-
-// Separate function to render the selected component
-fn render_selected_component(selected: &Signal<ComponentShowcase>) -> Element {
-    match *selected.read() {
+fn render_selected_component(selected: Signal<ComponentShowcase>) -> Element {
+    match selected() {
         ComponentShowcase::Card => render_card_showcase(),
         ComponentShowcase::Button => render_button_showcase(),
         ComponentShowcase::Accordion => render_accordion_showcase(),
-        // Add cases for other components
+        ComponentShowcase::Alert => render_alert_showcase(),
     }
+
 }
+
+/// Start of the component showcase
+/// This function renders the selected component based on the state
 
 // Card showcase component
 fn render_card_showcase() -> Element {
@@ -81,12 +92,13 @@ fn render_card_showcase() -> Element {
                     class: Some("shadow-xl bg-base-100".to_string()),
                     drawer_trigger: None,
                     modal_trigger: None,
-                    CardHeader { class: None, title: "Sample Card".to_string(), "" }
+                    CardHeader { class: None, title: "Sample Card".to_string() }
                     CardBody { class: None, "This is a card body with some sample content." }
+                    CardFoot { class: None, "This is a card Foot with some sample content." }
                 }
             }
             // Component documentation
-            div { class: "mt-8 p-4 bg-base-300 rounded-lg",
+            div { class: "mt-8 p-4 bg-gray-100 rounded-lg w-full",
                 h3 { class: "font-bold", "Props" }
                 ul { class: "list-disc pl-5 mt-2",
                     li { "class: Optional styles to apply to the card" }
@@ -98,7 +110,6 @@ fn render_card_showcase() -> Element {
         }
     }
 } // END Card showcase component
-
 
 // Button showcase component
 fn render_button_showcase() -> Element {
@@ -152,7 +163,6 @@ fn render_button_showcase() -> Element {
 }
 // END Button showcase component
 
-
 // accordion showcase component
 fn render_accordion_showcase() -> Element {
     rsx! {
@@ -188,7 +198,7 @@ fn render_accordion_showcase() -> Element {
                     title: "Section 1",
                     open: Some(true),
                     accordion_type: Some(AccordionType::Radio),
-                    join: Some(true),
+                    join: true,
                     children: rsx! {
                         p { "This is section 1 content." }
                     },
@@ -221,6 +231,57 @@ fn render_accordion_showcase() -> Element {
             }
         }
     }
-        }
-    
+}
 // END accordion showcase component
+
+fn render_alert_showcase() -> Element {
+    rsx! {
+        div { class: "space-y-4",
+            // Alert examples
+            h2 { class: "text-2xl font-bold mb-4", "Alert Examples" }
+            Alert { alert_color: AlertColor::Default, "This is a default info alert" }
+            Alert { alert_color: AlertColor::Info, "This is an info alert" }
+            Alert { alert_color: AlertColor::Success, "This is a success alert" }
+            Alert { alert_color: AlertColor::Warn, "This is a warning alert" }
+            Alert { alert_color: AlertColor::Error, "This is an error alert" }
+            Alert {
+                alert_color: AlertColor::Success,
+                with_buttons: WithButtons::Buttons,
+                "This is a success message with buttons!"
+            }
+            Alert {
+                alert_icon: AlertIcon::Warn,
+                alert_color: AlertColor::Warn,
+                class: "my-custom-class".to_string(),
+                "This is a warning alert with custom icon and class"
+            }
+
+            // Component documentation
+            div { class: "mt-8 p-4 bg-gray-100 rounded-lg w-full",
+                h3 { class: "font-bold text-lg", "Alert Component Props" }
+                ul { class: "list-disc pl-5 mt-2 space-y-1",
+                    li {
+                        strong { "alert_icon: " }
+                        "Optional icon to display (AlertIcon::Default, Info, Warn, Error, Success)"
+                    }
+                    li {
+                        strong { "alert_color: " }
+                        "Color variant (AlertColor::Default, Info, Warn, Error, Success)"
+                    }
+                    li {
+                        strong { "with_buttons: " }
+                        "Whether to show action buttons (WithButtons::Default or Buttons)"
+                    }
+                    li {
+                        strong { "class: " }
+                        "Additional CSS classes for the alert container"
+                    }
+                    li {
+                        strong { "children: " }
+                        "The content/message to display inside the alert"
+                    }
+                }
+            }
+        }
+    }
+}

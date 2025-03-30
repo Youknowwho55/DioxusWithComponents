@@ -76,4 +76,23 @@ pub fn CardBody(props: CardBodyProps) -> Element {
 }
 
 
+#[derive(Props, Clone, PartialEq)]
+pub struct CardFootProps {
+    class: Option<String>,
+    children: Element,
+}
+
+#[component]
+pub fn CardFoot(props: CardFootProps) -> Element {
+    let class = if let Some(class) = props.class {
+        format!("card-foot {}", class)
+    } else {
+        "card-foot".to_string()
+    };
+
+    rsx!(
+        div { class: "{class}", {props.children} }
+    )
+}
+
 
