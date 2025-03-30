@@ -45,8 +45,6 @@ pub fn render_card_showcase() -> Element {
                     }
                 }
             }
-        
-        // ... rest of your showcase code
         }
     }
 }

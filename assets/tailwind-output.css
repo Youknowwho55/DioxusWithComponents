@@ -523,6 +523,9 @@
     -webkit-box-orient: horizontal;
     -webkit-line-clamp: unset;
   }
+  .\!flex {
+    display: flex !important;
+  }
   .block {
     display: block;
   }
@@ -1428,6 +1431,9 @@
   .border-yellow-500 {
     border-color: var(--color-yellow-500);
   }
+  .\!bg-white {
+    background-color: var(--color-white) !important;
+  }
   .bg-\(--my_variable\) {
     background-color: var(--my_variable);
   }
@@ -2140,6 +2146,9 @@
   .opacity-60 {
     opacity: 60%;
   }
+  .opacity-75 {
+    opacity: 75%;
+  }
   .mix-blend-plus-darker {
     mix-blend-mode: plus-darker;
   }
@@ -2508,6 +2517,13 @@
     &:hover {
       @media (hover: hover) {
         background-color: var(--color-gray-100);
+      }
+    }
+  }
+  .hover\:bg-gray-500 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-gray-500);
       }
     }
   }

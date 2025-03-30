@@ -1,7 +1,7 @@
 // src/components/ui/button/types.rs
-#![allow(non_snake_case)]
 use dioxus::prelude::*;
 
+/// Visual style variants for buttons
 #[derive(Default, Copy, Clone, Debug, PartialEq, Eq)]
 pub enum ButtonScheme {
     #[default]
@@ -12,16 +12,18 @@ pub enum ButtonScheme {
 }
 
 impl ButtonScheme {
-    pub fn to_string(&self) -> &'static str {
+    /// Returns Tailwind classes for the button scheme
+    pub fn to_classes(&self) -> &'static str {
         match self {
-            ButtonScheme::Default => "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer active:bg-blue-800 active:transform active:scale-95 shadow-md hover:shadow-lg",
-            ButtonScheme::Primary => "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded cursor-pointer active:bg-green-800 active:transform active:scale-95 shadow-md hover:shadow-lg",
-            ButtonScheme::Warn => "bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded cursor-pointer active:bg-yellow-800 active:transform active:scale-95 shadow-md hover:shadow-lg",
-            ButtonScheme::Danger => "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded cursor-pointer active:bg-red-800 active:transform active:scale-95 shadow-md hover:shadow-lg",
+            ButtonScheme::Default => "bg-blue-500 hover:bg-blue-700 text-white",
+            ButtonScheme::Primary => "bg-green-500 hover:bg-green-700 text-white",
+            ButtonScheme::Warn => "bg-yellow-500 hover:bg-yellow-700 text-white",
+            ButtonScheme::Danger => "bg-red-500 hover:bg-red-700 text-white",
         }
     }
 }
 
+/// HTML button type attributes
 #[derive(Default, Copy, Clone, Debug, PartialEq, Eq)]
 pub enum ButtonType {
     Submit,
@@ -31,7 +33,8 @@ pub enum ButtonType {
 }
 
 impl ButtonType {
-    pub fn to_string(&self) -> &'static str {
+    /// Returns the HTML button type string
+    pub fn as_str(&self) -> &'static str {
         match self {
             ButtonType::Submit => "submit",
             ButtonType::Reset => "reset",
@@ -40,18 +43,20 @@ impl ButtonType {
     }
 }
 
+/// Size variants for buttons
 #[derive(Default, Copy, Clone, Debug, PartialEq, Eq)]
 pub enum ButtonSize {
     #[default]
     Default,
-    Small,
     ExtraSmall,
-    Large,
+    Small,
     Medium,
+    Large,
 }
 
 impl ButtonSize {
-    pub fn to_string(&self) -> &'static str {
+    /// Returns Tailwind classes for the button size
+    pub fn to_classes(&self) -> &'static str {
         match self {
             ButtonSize::Default => "px-3 py-1.5 text-sm",
             ButtonSize::ExtraSmall => "px-2 py-1 text-xs",
@@ -62,18 +67,53 @@ impl ButtonSize {
     }
 }
 
+/// Properties for the Button component
 #[derive(Props, Clone, PartialEq)]
 pub struct ButtonProps {
-    children: Element,
-    id: Option<String>,
-    disabled: Option<bool>,
-    class: Option<String>,
-    prefix_image_src: Option<String>,
-    suffix_image_src: Option<String>,
-    button_type: Option<ButtonType>,
-    button_size: Option<ButtonSize>,
-    button_scheme: Option<ButtonScheme>,
-    drawer_trigger: Option<String>,
-    modal_trigger: Option<String>,
-    disabled_text: Option<String>,
+    /// Child elements (button content)
+    pub children: Element,
+    
+    /// HTML id attribute
+    #[props(default)]
+    pub id: Option<String>,
+    
+    /// Disabled state
+    #[props(default)]
+    pub disabled: Option<bool>,
+    
+    /// Additional CSS classes
+    #[props(default)]
+    pub class: Option<String>,
+    
+    /// Image source to display before text
+    #[props(default)]
+    pub prefix_image_src: Option<String>,
+    
+    /// Image source to display after text
+    #[props(default)]
+    pub suffix_image_src: Option<String>,
+    
+    /// Button type variant
+    #[props(default)]
+    pub button_type: Option<ButtonType>,
+    
+    /// Size variant
+    #[props(default)]
+    pub button_size: Option<ButtonSize>,
+    
+    /// Color scheme variant
+    #[props(default)]
+    pub button_scheme: Option<ButtonScheme>,
+    
+    /// Target drawer ID for interaction
+    #[props(default)]
+    pub drawer_trigger: Option<String>,
+    
+    /// Target modal ID for interaction
+    #[props(default)]
+    pub modal_trigger: Option<String>,
+    
+    /// Text to show when button is disabled
+    #[props(default)]
+    pub disabled_text: Option<String>,
 }

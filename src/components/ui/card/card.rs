@@ -1,4 +1,4 @@
-// src/components/daisy_ui/card.rs
+// src/components/ui/card.rs
 #![allow(non_snake_case)]
 
 use dioxus::prelude::*;

@@ -3,13 +3,15 @@ use dioxus::prelude::*;
 // Import all your components
 use crate::components::ui::alert::render_alert_showcase;
 use crate::components::ui::card::render_card_showcase;
+use crate::components::ui::accordion::render_accordion_showcase;
+use crate::components::ui::button::render_button_showcase;
 
 
 #[derive(PartialEq, Clone, Copy, Debug)]
 pub enum ComponentShowcase {
     Card,
-    // Button,
-    // Accordion,
+    Button,
+    Accordion,
     Alert,
     // Add more components as needed
 }
@@ -21,8 +23,8 @@ pub fn Component_showcase() -> Element {
     // List of all available components for the sidebar
     let components = [
         ComponentShowcase::Card,
-        // ComponentShowcase::Button,
-        // ComponentShowcase::Accordion,
+        ComponentShowcase::Button,
+        ComponentShowcase::Accordion,
         ComponentShowcase::Alert,
     ];
 
@@ -65,8 +67,8 @@ pub fn Component_showcase() -> Element {
 fn render_selected_component(selected: Signal<ComponentShowcase>) -> Element {
     match selected() {
         ComponentShowcase::Card => render_card_showcase(),
-        // ComponentShowcase::Button => render_button_showcase(),
-        // ComponentShowcase::Accordion => render_accordion_showcase(),
+        ComponentShowcase::Button => render_button_showcase(),
+        ComponentShowcase::Accordion => render_accordion_showcase(),
         ComponentShowcase::Alert => render_alert_showcase(),
     }
 

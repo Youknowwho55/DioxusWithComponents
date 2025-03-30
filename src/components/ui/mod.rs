@@ -62,7 +62,7 @@ pub mod components {
 
 // Type exports
 pub mod types {
-    pub use super::accordion::AccordionType;
+    pub use super::accordion::{Accordion, AccordionProps};
     pub use super::alert::{AlertColor, AlertIcon, WithButtons};
     pub use super::avatar::{AvatarSize, AvatarType};
     pub use super::button::{ButtonScheme, ButtonSize, ButtonType};

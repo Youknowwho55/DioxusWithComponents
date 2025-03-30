@@ -1,4 +1,4 @@
-// src/components/daisy_ui/types.rs
+// src/components/ui/card/types.rs
 use dioxus::prelude::*;
 
 /// Properties for the Card component
