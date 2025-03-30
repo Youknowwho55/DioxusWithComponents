@@ -1,6 +1,5 @@
 // src/components/mod.rs
-mod hero;
-pub use hero::Hero;
+
 
 mod navbar;
 pub use navbar::Navbar;
@@ -17,7 +16,7 @@ pub mod sidebar;
 pub use sidebar::Component_showcase;
 
 // components/mod.rs
-pub mod daisy_ui;
+pub mod ui;
 
 mod guide_component;
 pub use guide_component::DogApp;

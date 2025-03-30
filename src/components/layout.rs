@@ -14,7 +14,7 @@ pub fn Layout(children: Element) -> Element {
                 }
             }
             // Main content area
-            main { class: "flex-grow container mx-auto py-2 px-4", {children} }
+            main { class: "flex-grow py-2 px-4", {children} }
             // Footer
             footer { class: "w-full bg-gray-100 p-4 text-center",
                 "© 2025 My Dioxus App. All rights reserved."
