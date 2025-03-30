@@ -1,5 +1,12 @@
 // Button showcase component
-fn render_button_showcase() -> Element {
+use dioxus::prelude::*;
+use super::{
+    Button,
+    ButtonScheme,
+    ButtonType,
+    ButtonSize,
+};
+pub fn render_button_showcase() -> Element {
     rsx! {
         div { class: "space-y-8",
             h2 { class: "text-2xl font-bold", "Button Component" }

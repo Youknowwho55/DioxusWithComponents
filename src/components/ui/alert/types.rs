@@ -1,4 +1,4 @@
-// src/components/DaisyUI/types.rs
+// src/components/ui/alert/types.rs
 use dioxus::prelude::*;
 
 #[derive(Copy, Clone, Debug, Default, PartialEq, Eq)]

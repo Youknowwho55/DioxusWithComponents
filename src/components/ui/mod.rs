@@ -38,7 +38,7 @@ pub mod components {
     
     // Data Display
     pub use super::avatar::{Avatar, AvatarSize, AvatarType};
-    pub use super::card::{Card, CardBody, CardHeader};
+    pub use super::card::{Card, CardBody, CardFoot, CardHeader};
     pub use super::time_line::{TimeLine, TimeLineBadge, TimeLineBody};
     
     // Form Elements
