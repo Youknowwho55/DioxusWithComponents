@@ -1,37 +1,34 @@
-# libs/ui-core/Cargo.toml
 [package]
-name = "ui-core"
+name = "ui_core"
 version = "0.1.0"
 edition = "2021"
 description = "Reusable UI components"
-license = "MIT OR Apache-2.0" 
-repository = "https://github.com/your/repo"
+license = "MIT" 
+repository = "https://github.com/Youknowwho55/DioxusWithComponents"
 documentation = "https://docs.rs/ui-core"
 keywords = ["dioxus", "ui", "components"]
 categories = ["gui", "rendering"]
 
 [lib]
-name = "ui_core"  # Name used in imports
-path = "src/lib.rs"  # Entry point
-crate-type = ["rlib"]  # Compile as Rust library
-
+path = "src/lib.rs"
+crate-type = ["rlib"]
 
 [features]
 default = []
-showcase = []  # For development examples
+showcase = []
 web = ["dioxus/web"]
 desktop = ["dioxus/desktop"]
 
 [dependencies]
 dioxus = { version = "0.6", features = ["html"] }
-dioxus-html = "0.6.3"
+dioxus-html = "0.6"
 serde = { version = "1.0", features = ["derive"], optional = true }
-strum = { version = "0.27.1", features = ["derive"] }
-log = "0.4.27"
+strum = { version = "0.27", features = ["derive"] }
+log = "0.4"
 
 [dev-dependencies]
-dioxus-ssr = "0.6"  # For snapshot testing
-insta = "1.0"       # For snapshot assertions
+dioxus-ssr = "0.6"
+insta = "1.0"
 
 [target.'cfg(target_arch = "wasm32")'.dependencies]
 dioxus-web = "0.6"

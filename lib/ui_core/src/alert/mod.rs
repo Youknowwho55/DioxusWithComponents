@@ -13,9 +13,11 @@ pub use alert::Alert;
 pub use types::{AlertColor, AlertIcon, WithButtons};
 
 // Showcase/Demos
-pub use alert_showcase::render_alert_showcase;
 
 // Convenience Prelude
 pub mod prelude {
     pub use super::{Alert, AlertColor, AlertIcon, WithButtons};
 }
+
+
+pub use alert_showcase::render_alert_showcase;

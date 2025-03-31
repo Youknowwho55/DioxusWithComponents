@@ -2504,8 +2504,8 @@ dependencies = [
  "dioxus-html",
  "log",
  "serde",
- "ui-core",
- "ui-templates",
+ "ui_core",
+ "ui_templates",
 ]
 
 [[package]]
@@ -4568,7 +4568,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "ui-core"
+name = "ui_core"
 version = "0.1.0"
 dependencies = [
  "dioxus",
@@ -4583,14 +4583,15 @@ dependencies = [
 ]
 
 [[package]]
-name = "ui-templates"
+name = "ui_templates"
 version = "0.1.0"
 dependencies = [
  "chrono",
  "dioxus",
  "dioxus-router",
+ "dioxus-ssr",
  "serde_json",
- "ui-core",
+ "ui_core",
 ]
 
 [[package]]

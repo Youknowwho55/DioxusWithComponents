@@ -88,13 +88,43 @@ pub fn Input(props: InputProps) -> Element {
                     maxlength: props.maxlength.map(|v| v.to_string()).as_deref(),
                     minlength: props.minlength.map(|v| v.to_string()).as_deref(),
                     autocomplete: props.autocomplete.as_deref(),
-                    onchange: move |evt| props.onchange.as_ref().map(|h| h.call(evt)),
-                    onfocus: move |evt| props.onfocus.as_ref().map(|h| h.call(evt)),
-                    onblur: move |evt| props.onblur.as_ref().map(|h| h.call(evt)),
-                    onkeypress: move |evt| props.onkeypress.as_ref().map(|h| h.call(evt)),
-                    onkeydown: move |evt| props.onkeydown.as_ref().map(|h| h.call(evt)),
-                    onkeyup: move |evt| props.onkeyup.as_ref().map(|h| h.call(evt)),
-                    oninput: move |evt| props.oninput.as_ref().map(|h| h.call(evt)),
+                    input {
+                        // Input/Change events (for FormEvent)
+                        oninput: move |e: FormEvent| {
+                            let value = e.value();
+                            if let Some(handler) = &props.oninput {
+                                handler.call(value);
+                            }
+                        },
+                        onchange: move |e: FormEvent| {
+                            let value = e.value();
+                            if let Some(handler) = &props.onchange {
+                                handler.call(value);
+                            }
+                        },
+                        // Keyboard events
+                        onkeydown: move |e: KeyboardEvent| {
+                            if let Some(handler) = &props.onkeydown {
+                                handler.call(e);
+                            }
+                        },
+                        onkeyup: move |e: KeyboardEvent| {
+                            if let Some(handler) = &props.onkeyup {
+                                handler.call(e);
+                            }
+                        },
+                        // Focus events
+                        onfocus: move |e: FocusEvent| {
+                            if let Some(handler) = &props.onfocus {
+                                handler.call(e);
+                            }
+                        },
+                        onblur: move |e: FocusEvent| {
+                            if let Some(handler) = &props.onblur {
+                                handler.call(e);
+                            }
+                        },
+                    }
                 }
 
                 // Suffix element
@@ -124,7 +154,7 @@ pub fn Input(props: InputProps) -> Element {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::components::ui::input::types::{InputScheme, InputSize, InputType};
+    use crate::input::types::{InputProps, InputScheme, InputSize, InputType};
 
     // Basic rendering test
     #[test]
@@ -170,7 +200,8 @@ mod tests {
             ..Default::default()
         };
         
-        let rendered = dioxus_ssr::render(Input(props));
+        let mut dom = VirtualDom::new_with_props(Input, props);
+        let rendered = dioxus_ssr::render(&dom);
         assert!(rendered.contains("border-blue-500"));
         assert!(rendered.contains("px-4 py-2.5"));
         assert!(rendered.contains("extra-class"));

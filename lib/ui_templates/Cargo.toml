@@ -1,0 +1,27 @@
+[package]
+name = "ui_templates"
+version = "0.1.0"
+edition = "2021"
+description = "Page templates and compositions using ui-core components"
+license = "MIT"
+repository = "https://github.com/Youknowwho55/DioxusWithComponents"
+documentation = "https://docs.rs/ui-templates"
+
+[lib]
+name = "ui_templates"  # Changed to match package name
+path = "src/lib.rs"
+crate-type = ["rlib"]
+
+[features]
+default = []
+
+[dependencies]
+ui_core = { path = "../ui_core", features = ["web"] }  # Default to web
+dioxus = { version = "0.6", features = ["router"] }
+dioxus-router = "0.6"
+serde_json = "1.0"
+chrono = { version = "0.4", features = ["serde"] }
+
+[dev-dependencies]
+ui_core = { path = "../ui_core", features = ["showcase"] }
+dioxus-ssr = "0.6"  # For testing templates

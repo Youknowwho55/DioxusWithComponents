@@ -1,5 +1,6 @@
 use dioxus::prelude::*;
-use super::{Input, InputScheme, InputType, InputSize};
+use super::types::{InputProps, InputScheme, InputSize, InputType};
+use super::Input;
 
 /// Input component showcase demonstrating all variants and configurations
 pub fn render_input_showcase() -> Element {
@@ -18,35 +19,45 @@ pub fn render_input_showcase() -> Element {
                 h2 { class: "text-xl font-semibold", "Input Types" }
                 div { class: "grid grid-cols-1 md:grid-cols-2 gap-4",
                     Input {
-                        name: "text-input",
-                        input_type: InputType::Text,
-                        placeholder: "Text input",
+                        name: "text-input".to_string(),
+                        r#type: Some(InputType::Text),
+                        placeholder: Some("Text input".to_string()),
+                        ..InputProps::default(),
                     }
                     Input {
-                        name: "email-input",
-                        input_type: InputType::Email,
-                        placeholder: "Email input",
+                        name: "email-input".to_string(),
+                        r#type: Some(InputType::Email),
+                        placeholder: Some("Email input".to_string()),
+                        ..InputProps::default(),
                     }
                     Input {
-                        name: "password-input",
-                        input_type: InputType::Password,
-                        placeholder: "Password input",
+                        name: "password-input".to_string(),
+                        r#type: Some(InputType::Password),
+                        placeholder: Some("Password input".to_string()),
+                        ..InputProps::default(),
                     }
                     Input {
-                        name: "number-input",
-                        input_type: InputType::Number,
-                        placeholder: "Number input",
+                        name: "number-input".to_string(),
+                        r#type: Some(InputType::Number),
+                        placeholder: Some("Number input".to_string()),
+                        ..InputProps::default(),
                     }
                     Input {
-                        name: "date-input",
-                        input_type: InputType::Date,
-                        placeholder: "Date input",
+                        name: "date-input".to_string(),
+                        r#type: Some(InputType::Date),
+                        placeholder: Some("Date input".to_string()),
+                        ..InputProps::default(),
                     }
-                    Input { name: "color-input", input_type: InputType::Color }
                     Input {
-                        name: "file-input",
-                        input_type: InputType::File,
-                        class: "block w-full",
+                        name: "color-input".to_string(),
+                        r#type: Some(InputType::Color),
+                        ..InputProps::default(),
+                    }
+                    Input {
+                        name: "file-input".to_string(),
+                        r#type: Some(InputType::File),
+                        class: Some("block w-full".to_string()),
+                        ..InputProps::default(),
                     }
                 }
             }
@@ -56,29 +67,34 @@ pub fn render_input_showcase() -> Element {
                 h2 { class: "text-xl font-semibold", "Color Schemes" }
                 div { class: "grid grid-cols-1 md:grid-cols-2 gap-4",
                     Input {
-                        name: "default-input",
-                        input_scheme: InputScheme::Default,
-                        placeholder: "Default scheme",
+                        name: "default-input".to_string(),
+                        scheme: Some(InputScheme::Default),
+                        placeholder: Some("Default scheme".to_string()),
+                        ..InputProps::default(),
                     }
                     Input {
-                        name: "primary-input",
-                        input_scheme: InputScheme::Primary,
-                        placeholder: "Primary scheme",
+                        name: "primary-input".to_string(),
+                        scheme: Some(InputScheme::Primary),
+                        placeholder: Some("Primary scheme".to_string()),
+                        ..InputProps::default(),
                     }
                     Input {
-                        name: "success-input",
-                        input_scheme: InputScheme::Success,
-                        placeholder: "Success scheme",
+                        name: "success-input".to_string(),
+                        scheme: Some(InputScheme::Success),
+                        placeholder: Some("Success scheme".to_string()),
+                        ..InputProps::default(),
                     }
                     Input {
-                        name: "warn-input",
-                        input_scheme: InputScheme::Warning,
-                        placeholder: "Warning scheme",
+                        name: "warn-input".to_string(),
+                        scheme: Some(InputScheme::Warning),
+                        placeholder: Some("Warning scheme".to_string()),
+                        ..InputProps::default(),
                     }
                     Input {
-                        name: "danger-input",
-                        input_scheme: InputScheme::Danger,
-                        placeholder: "Danger scheme",
+                        name: "danger-input".to_string(),
+                        scheme: Some(InputScheme::Danger),
+                        placeholder: Some("Danger scheme".to_string()),
+                        ..InputProps::default(),
                     }
                 }
             }
@@ -88,24 +104,28 @@ pub fn render_input_showcase() -> Element {
                 h2 { class: "text-xl font-semibold", "Size Variants" }
                 div { class: "grid grid-cols-1 gap-4",
                     Input {
-                        name: "xs-input",
-                        input_size: InputSize::ExtraSmall,
-                        placeholder: "Extra small input",
+                        name: "xs-input".to_string(),
+                        size: Some(InputSize::ExtraSmall),
+                        placeholder: Some("Extra small input".to_string()),
+                        ..InputProps::default(),
                     }
                     Input {
-                        name: "small-input",
-                        input_size: InputSize::Small,
-                        placeholder: "Small input",
+                        name: "small-input".to_string(),
+                        size: Some(InputSize::Small),
+                        placeholder: Some("Small input".to_string()),
+                        ..InputProps::default(),
                     }
                     Input {
-                        name: "medium-input",
-                        input_size: InputSize::Medium,
-                        placeholder: "Medium input",
+                        name: "medium-input".to_string(),
+                        size: Some(InputSize::Medium),
+                        placeholder: Some("Medium input".to_string()),
+                        ..InputProps::default(),
                     }
                     Input {
-                        name: "large-input",
-                        input_size: InputSize::Large,
-                        placeholder: "Large input",
+                        name: "large-input".to_string(),
+                        size: Some(InputSize::Large),
+                        placeholder: Some("Large input".to_string()),
+                        ..InputProps::default(),
                     }
                 }
             }
@@ -115,24 +135,28 @@ pub fn render_input_showcase() -> Element {
                 h2 { class: "text-xl font-semibold", "Input States" }
                 div { class: "grid grid-cols-1 md:grid-cols-2 gap-4",
                     Input {
-                        name: "disabled-input",
+                        name: "disabled-input".to_string(),
                         disabled: true,
-                        value: "Disabled input",
+                        value: Some("Disabled input".to_string()),
+                        ..InputProps::default(),
                     }
                     Input {
-                        name: "readonly-input",
+                        name: "readonly-input".to_string(),
                         readonly: true,
-                        value: "Readonly input",
+                        value: Some("Readonly input".to_string()),
+                        ..InputProps::default(),
                     }
                     Input {
-                        name: "required-input",
+                        name: "required-input".to_string(),
                         required: true,
-                        placeholder: "Required input",
+                        placeholder: Some("Required input".to_string()),
+                        ..InputProps::default(),
                     }
                     Input {
-                        name: "autofocus-input",
+                        name: "autofocus-input".to_string(),
                         autofocus: true,
-                        placeholder: "Autofocused input",
+                        placeholder: Some("Autofocused input".to_string()),
+                        ..InputProps::default(),
                     }
                 }
             }
@@ -142,22 +166,25 @@ pub fn render_input_showcase() -> Element {
                 h2 { class: "text-xl font-semibold", "Validation Examples" }
                 div { class: "grid grid-cols-1 md:grid-cols-2 gap-4",
                     Input {
-                        name: "minmax-input",
-                        input_type: InputType::Number,
-                        min: "5",
-                        max: "10",
-                        placeholder: "Number between 5-10",
+                        name: "minmax-input".to_string(),
+                        r#type: Some(InputType::Number),
+                        min: Some("5".to_string()),
+                        max: Some("10".to_string()),
+                        placeholder: Some("Number between 5-10".to_string()),
+                        ..InputProps::default(),
                     }
                     Input {
-                        name: "pattern-input",
-                        pattern: "[A-Za-z]{3}",
-                        placeholder: "Exactly 3 letters",
+                        name: "pattern-input".to_string(),
+                        pattern: Some("[A-Za-z]{3}".to_string()),
+                        placeholder: Some("Exactly 3 letters".to_string()),
+                        ..InputProps::default(),
                     }
                     Input {
-                        name: "length-input",
-                        minlength: "3",
-                        maxlength: "6",
-                        placeholder: "3-6 characters",
+                        name: "length-input".to_string(),
+                        minlength: Some(3),
+                        maxlength: Some(6),
+                        placeholder: Some("3-6 characters".to_string()),
+                        ..InputProps::default(),
                     }
                 }
             }
@@ -167,42 +194,24 @@ pub fn render_input_showcase() -> Element {
                 h2 { class: "text-xl font-semibold", "With Labels & Helpers" }
                 div { class: "grid grid-cols-1 gap-4",
                     Input {
-                        name: "labeled-input",
-                        label: "Username",
-                        placeholder: "Enter your username",
+                        name: "labeled-input".to_string(),
+                        label: Some("Username".to_string()),
+                        placeholder: Some("Enter your username".to_string()),
+                        ..InputProps::default(),
                     }
                     Input {
-                        name: "help-text-input",
-                        label: "Password",
-                        help_text: "Must be at least 8 characters",
-                        input_type: InputType::Password,
+                        name: "help-text-input".to_string(),
+                        label: Some("Password".to_string()),
+                        help_text: Some("Must be at least 8 characters".to_string()),
+                        r#type: Some(InputType::Password),
+                        ..InputProps::default(),
                     }
                     Input {
-                        name: "error-input",
-                        label: "Email",
-                        error: "Please enter a valid email address",
-                        input_scheme: InputScheme::Danger,
-                    }
-                }
-            }
-
-            // With Prefix/Suffix
-            section { class: "space-y-4 mt-8",
-                h2 { class: "text-xl font-semibold", "With Prefix/Suffix" }
-                div { class: "grid grid-cols-1 md:grid-cols-2 gap-4",
-                    Input {
-                        name: "prefix-input",
-                        prefix: rsx! {
-                            span { class: "px-3 text-gray-500", "$" }
-                        },
-                        placeholder: "Amount",
-                    }
-                    Input {
-                        name: "suffix-input",
-                        suffix: rsx! {
-                            span { class: "px-3 text-gray-500", "kg" }
-                        },
-                        placeholder: "Weight",
+                        name: "error-input".to_string(),
+                        label: Some("Email".to_string()),
+                        error: Some("Please enter a valid email address".to_string()),
+                        scheme: Some(InputScheme::Danger),
+                        ..InputProps::default(),
                     }
                 }
             }
@@ -233,17 +242,17 @@ pub fn render_input_showcase() -> Element {
                                 description: "HTML name attribute (required)",
                             }
                             PropRow {
-                                name: "input_type",
+                                name: "r#type",
                                 type_info: "Option<InputType>",
                                 description: "Input type (Text, Email, Password, etc.)",
                             }
                             PropRow {
-                                name: "input_scheme",
+                                name: "scheme",
                                 type_info: "Option<InputScheme>",
                                 description: "Color variant (Default, Primary, Success, etc.)",
                             }
                             PropRow {
-                                name: "input_size",
+                                name: "size",
                                 type_info: "Option<InputSize>",
                                 description: "Size variant (ExtraSmall, Small, Medium, Large)",
                             }
@@ -286,16 +295,6 @@ pub fn render_input_showcase() -> Element {
                                 name: "error",
                                 type_info: "Option<String>",
                                 description: "Error message",
-                            }
-                            PropRow {
-                                name: "prefix",
-                                type_info: "Option<Element>",
-                                description: "Prefix element (icon or text)",
-                            }
-                            PropRow {
-                                name: "suffix",
-                                type_info: "Option<Element>",
-                                description: "Suffix element (icon or text)",
                             }
                         }
                     }

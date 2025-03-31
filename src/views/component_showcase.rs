@@ -1,11 +1,9 @@
 // src/components/sidebar.rs
 use dioxus::prelude::*;
 // Import all your components
-use crate::components::ui::alert::render_alert_showcase;
-use crate::components::ui::card::render_card_showcase;
-use crate::components::ui::accordion::render_accordion_showcase;
-use crate::components::ui::button::render_button_showcase;
-use crate::components::ui::input::render_input_showcase;
+
+
+use ui_core::components::showcase::{render_accordion_showcase, render_button_showcase, render_card_showcase, render_alert_showcase, render_input_showcase};
 
 
 #[derive(PartialEq, Clone, Copy, Debug)]

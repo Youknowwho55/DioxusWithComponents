@@ -5,20 +5,19 @@ authors = ["Youknowwho55 <rayburncode@gmail.com>"]
 edition = "2021"
 description = "Main application using UI components"
 license = "MIT"
-repository = "https://github.com/you/repo"
+repository = "https://github.com/Youknowwho55/DioxusWithComponents"
 
 [workspace]
 resolver = "2"  
-
 members = [
-    "libs/ui-core",
-    "libs/ui-templates"
+    "lib/ui_core",
+    "lib/ui_templates"
 ]
 
 [dependencies]
 # Internal crates
-ui-core = { path = "./libs/ui-core" }
-ui-templates = { path = "./libs/ui-templates" }
+ui_core = { path = "lib/ui_core" }
+ui_templates = { path = "lib/ui_templates" }
 
 # Dioxus
 dioxus = { version = "0.6.3", features = ["router", "fullstack"] }
@@ -34,11 +33,11 @@ log = "0.4.27"
 default = ["desktop"]
 web = [
     "dioxus/web",
-    "ui-core/web",
+    "ui_core/web",
 ]
 desktop = [
     "dioxus/desktop",
-    "ui-core/desktop"
+    "ui_core/desktop"
 ]
 mobile = ["dioxus/mobile"]
 

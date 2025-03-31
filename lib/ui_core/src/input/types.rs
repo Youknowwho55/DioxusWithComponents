@@ -130,7 +130,7 @@ impl InputType {
 }
 
 /// Properties for the Input component with better organization
-#[derive(Props, Clone, PartialEq)]
+#[derive(Props, Clone, PartialEq, Default)]
 pub struct InputProps {
     // Core attributes
     /// HTML name attribute (required for form submission)
@@ -237,31 +237,22 @@ pub struct InputProps {
     pub autocomplete: Option<String>,
     
     // Event handlers
-    /// Callback for when the input value changes
-    #[props(default)]
-    pub onchange: Option<EventHandler<FormEvent>>,
-    
-    /// Callback for when the input receives focus
-    #[props(default)]
-    pub onfocus: Option<EventHandler<FocusEvent>>,
-    
-    /// Callback for when the input loses focus
-    #[props(default)]
-    pub onblur: Option<EventHandler<FocusEvent>>,
-    
-    /// Callback for key press events
-    #[props(default)]
-    pub onkeypress: Option<EventHandler<KeyboardEvent>>,
-    
-    /// Callback for key down events
-    #[props(default)]
-    pub onkeydown: Option<EventHandler<KeyboardEvent>>,
-    
-    /// Callback for key up events
-    #[props(default)]
-    pub onkeyup: Option<EventHandler<KeyboardEvent>>,
-    
-    /// Callback for input events (fires on every change)
-    #[props(default)]
-    pub oninput: Option<EventHandler<FormEvent>>,
+   // Event handlers
+   #[props(default)]
+   pub oninput: Option<EventHandler<String>>,
+   
+   #[props(default)]
+   pub onchange: Option<EventHandler<String>>,
+   
+   #[props(default)]
+   pub onkeydown: Option<EventHandler<KeyboardEvent>>,
+   
+   #[props(default)]
+   pub onkeyup: Option<EventHandler<KeyboardEvent>>,
+   
+   #[props(default)]
+   pub onfocus: Option<EventHandler<FocusEvent>>,
+   
+   #[props(default)]
+   pub onblur: Option<EventHandler<FocusEvent>>,
 }
