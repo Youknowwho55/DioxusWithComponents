@@ -4,7 +4,7 @@ use dioxus::prelude::*;
 
 
 use ui_core::components::showcase::{render_accordion_showcase, render_button_showcase, render_card_showcase, render_alert_showcase, render_input_showcase};
-
+use ui_core::examples::alert_showcase::render_alert_showcase;
 
 #[derive(PartialEq, Clone, Copy, Debug)]
 pub enum ComponentShowcase {

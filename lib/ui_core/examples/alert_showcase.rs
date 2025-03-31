@@ -1,5 +1,6 @@
 use dioxus::prelude::*;
 use super::{Alert, AlertColor, AlertIcon, WithButtons};
+use crate::alert::types::{AlertProps, AlertVariant};
 
 /// Showcase for the Alert component demonstrating all variants and configurations
 pub fn render_alert_showcase() -> Element {

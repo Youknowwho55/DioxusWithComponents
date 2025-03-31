@@ -1,7 +1,8 @@
 #![allow(non_snake_case)]
 
 use dioxus::prelude::*;
-use super::types::{ModalProps, ModalBodyProps, ModalActionProps};
+use super::types::{ModalProps, ModalBodyProps, ModalActionProps, };
+
 
 
 #[component]

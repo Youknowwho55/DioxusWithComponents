@@ -30,7 +30,7 @@ pub use types::{
 };
 
 // Showcase/Demos
-pub use check_box_showcase::render_check_boc_showcase;
+pub use check_box_showcase::render_check_box_showcase;
 
 // Convenience Prelude
 pub mod prelude {

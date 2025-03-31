@@ -3,7 +3,6 @@
 //! Provides customizable button components with multiple variants including:
 //! - Color schemes (primary, danger, warning, etc.)
 //! - Sizes (xs, sm, md, lg)
-//! - Types (button, submit, reset)
 //! - Icon support
 //!
 //! # Example
