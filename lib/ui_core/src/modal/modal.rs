@@ -1,14 +1,8 @@
 #![allow(non_snake_case)]
 
 use dioxus::prelude::*;
+use super::types::{ModalProps, ModalBodyProps, ModalActionProps};
 
-#[derive(Props, Clone, PartialEq)]
-pub struct ModalProps {
-    trigger_id: String,
-    children: Element,
-    submit_action: Option<String>,
-    class: Option<String>,
-}
 
 #[component]
 pub fn Modal(props: ModalProps) -> Element {
@@ -28,11 +22,7 @@ pub fn Modal(props: ModalProps) -> Element {
     )
 }
 
-#[derive(Props, Clone, PartialEq)]
-pub struct ModalBodyProps {
-    children: Element,
-    class: Option<String>,
-}
+
 
 #[component]
 pub fn ModalBody(props: ModalBodyProps) -> Element {
@@ -48,11 +38,7 @@ pub fn ModalBody(props: ModalBodyProps) -> Element {
     )
 }
 
-#[derive(Props, Clone, PartialEq)]
-pub struct ModalActionProps {
-    children: Element,
-    class: Option<String>,
-}
+
 
 #[component]
 pub fn ModalAction(props: ModalActionProps) -> Element {

@@ -1,4 +1,6 @@
 // src/components/ui/check_box/types.rs
+// NEED TO ADD CHECKBOX THAT HAS LABEL. SIMILAR TO REMEMVER ME
+
 use dioxus::prelude::*;
 
 #[derive(Default, Copy, Clone, Debug, PartialEq, Eq)]
@@ -8,6 +10,7 @@ pub enum CheckBoxScheme {
     Primary,
     Outline,
     Danger,
+    Label,
 }
 
 impl CheckBoxScheme {
@@ -17,6 +20,8 @@ impl CheckBoxScheme {
             CheckBoxScheme::Primary => "checkbox-primary",
             CheckBoxScheme::Outline => "checkbox-outline",
             CheckBoxScheme::Danger => "checkbox-warning",
+            CheckBoxScheme::Label => "checkbox-label",
+
         }
     }
 }
@@ -42,3 +47,5 @@ impl CheckBoxSize {
         }
     }
 }
+
+

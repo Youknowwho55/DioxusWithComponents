@@ -1,6 +1,6 @@
 #![allow(non_snake_case)]
 use dioxus::prelude::*;
-
+use super::types::{CheckBoxScheme, CheckBoxSize};
 
 #[derive(Props, Clone, PartialEq)]
 pub struct CheckBoxProps {
@@ -13,6 +13,7 @@ pub struct CheckBoxProps {
     checkbox_size: Option<CheckBoxSize>,
     checkbox_scheme: Option<CheckBoxScheme>,
 }
+
 
 #[component]
 pub fn CheckBox(props: CheckBoxProps) -> Element {
